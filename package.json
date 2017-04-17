@@ -1,13 +1,18 @@
 {
-  "name": "saga-react-md-rrf1",
+  "name": "saga-react-md-rrf",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "redux-devtools": "^3.3.2",
+    "redux-devtools-extension": "^2.13.0"
   },
   "dependencies": {
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-saga": "^0.14.6"
   },
   "scripts": {
     "start": "react-scripts start",
