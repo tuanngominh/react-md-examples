@@ -1,7 +1,8 @@
 /*eslint-disable no-unused-vars */
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { increment, decrement, incrementAsync } from '../reducers';
+import { increment, decrement, incrementAsync } from '../ducks/counter';
 import { bindActionCreators } from 'redux';
 
 const Counter = ({ value, onIncrement, onDecrement, onIncrementAsync }) => <div>
@@ -30,7 +31,7 @@ Counter.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  value: state
+  value: state.counter
 });
 
 const mapDispatchToProps = dispatch => ({

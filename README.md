@@ -1,0 +1,2 @@
+- Redux with redux-saga.
+- Setup redux with [ducks style](https://github.com/erikras/ducks-modular-redux) to reduce file number.

@@ -1,6 +1,7 @@
 import reducers from '../reducers'
 import {createStore, applyMiddleware} from 'redux'
 import createSagaMiddleware from 'redux-saga'
+import sagas from '../reducers/sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -12,7 +13,7 @@ const configureStore = () => {
       sagaMiddleware
     )
   )
-  sagaMiddleware.run(mySaga);
+  sagaMiddleware.run(sagas);
   return store
 }
 
