@@ -6,7 +6,6 @@ export const types = {
 
 //Reducer
 export default function reducer(state = {}, action = {}) {
-  console.log(action);
   switch(action.type) {
     case types.SEARCH_REPOS_RESULT:
       return {

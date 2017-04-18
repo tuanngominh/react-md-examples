@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import configureStore from './store/configureStore'
 import {Provider} from 'react-redux';
+import '../node_modules/react-md/dist/react-md.amber-blue.min.css'
+import Root from './Root';
 
 const store = configureStore();
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Root />
   </Provider>,
   document.getElementById('root')
 );
