@@ -6,6 +6,9 @@ import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
 
 const stateItems = [{
+  name: '',
+  abbreviation: '',
+},{
   name: 'Alabama',
   abbreviation: 'AL',
 }, {

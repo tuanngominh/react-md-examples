@@ -14,8 +14,10 @@ const Root = () => {
         <IndexRoute component={SearchGithubRepos} />
         <Route path="/github/repos/search" component={SearchGithubRepos} />
         <Route path="/counter" component={Counter} />
-        <Route path="/form/add" component={Add} />
-        <Route path="/form/view" component={View} />
+        <Route path="form">
+          <Route path="add" component={Add} />
+          <Route path="view" component={View} />
+        </Route>
       </Route>
     </Router>
   );

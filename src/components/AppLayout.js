@@ -8,19 +8,19 @@ const navItems = [
     key="counter"
     primaryText="Counter"
     component={Link}
-    to="counter"
+    to="/counter"
   />,
   <ListItem
     key="github"
     primaryText="Github"
     component={Link}
-    to="github/repos/search"
+    to="/github/repos/search"
   />,
   <ListItem
     key="formValidation"
     primaryText="Form Validation"
     component={Link}
-    to="form/add"
+    to="/form/add"
   />,
 ];
 
