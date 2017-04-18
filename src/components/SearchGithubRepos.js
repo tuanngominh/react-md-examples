@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {searchRepos} from '../ducks/github';
-import { bindActionCreators } from 'redux';
+import TextField from 'react-md/lib/TextFields';
+import FontIcon from 'react-md/lib/FontIcons';
+import List from 'react-md/lib/Lists/List';
+import ListItem from 'react-md/lib/Lists/ListItem';
 
 class SearchGithubRepos extends Component {
   static defaultProps = {
@@ -10,43 +11,36 @@ class SearchGithubRepos extends Component {
     }
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      keyword: '',
-      results: []
-    }
-  }
-
-  handleSearch = (event) => {
-    this.props.onSearch(event.target.value);
-    this.setState({
-      keyword: event.target.value
-    })
-  }
-
   render() {
-    const { result: { items } } = this.props;
+    const { result: { items }, onSearch } = this.props;
     return (
-      <div>
-        Search github repos: <br/>
-        <input value={this.state.keyword} onChange={this.handleSearch} placeholder="repo name"/>
-        <div>
-          {items.map(repo => (
-            <div key={`repo-${repo.id}`}>{repo.name} {repo.description}</div>
-          ))}
+      <div className='md-cell md-cell--12'>
+        <div className='md-grid'>
+          <h1 className='md-cell md-cell--12'>Search github repos</h1>
+          <TextField
+            id="searchRepoName"
+            label="Search repo"
+            placeholder="repo name"
+            onChange={onSearch}
+            className="md-cell md-cell--12 md-cell--top"
+          />
         </div>
+        {(items && items.length > 0) && <div className='md-grid'>
+            <List className="md-cell md-paper md-cell--12">
+              {items.map(repo => (
+                <ListItem
+                  key={`repo-${repo.id}`}
+                  primaryText={repo.name}
+                  secondaryText={repo.description}
+                  rightIcon={<FontIcon>star</FontIcon>}
+                />
+              ))}
+            </List>
+          </div>
+        }
       </div>
     )
   }
 };
 
-const mapStateToProps = state => ({
-  result: state.github.searchResult
-});
-
-const mapDispatchToProps = dispatch => ({
-  onSearch: bindActionCreators(searchRepos, dispatch)
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchGithubRepos);
+export default SearchGithubRepos;

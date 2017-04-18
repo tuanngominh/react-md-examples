@@ -16,13 +16,19 @@ const navItems = [
     component={Link}
     to="github/repos/search"
   />,
+  <ListItem
+    key="formValidation"
+    primaryText="Form Validation"
+    component={Link}
+    to="form/add"
+  />,
 ];
 
 class AppLayout extends Component {
   render() {
     return (
       <NavigationDrawers
-        contentClassName="md-grid"
+        contentClassName="md-grid md-grid--no-spacing"
         toolbarTitle="redux-saga, react-md, react-redux-form"
         navItems={navItems}
       >
