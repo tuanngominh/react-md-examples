@@ -5,7 +5,7 @@ import { hashHistory } from 'react-router';
 
 function* saveForm2(action) {
   console.log(action);
-  yield delay(300);
+  yield delay(1000);
   const { data } = action;
 
   yield put({
