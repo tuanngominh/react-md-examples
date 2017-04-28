@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import FormWithValidation from '../../components/FormWithValidation';
-import { saveForm } from '../../ducks/form';
+import { saveForm3 } from '../../ducks/form';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 
 const stateItems = [{
   name: '',
@@ -19,11 +19,12 @@ const stateItems = [{
   abbreviation: 'AS',
 }];
 
-class Add extends PureComponent {
+class Form extends PureComponent {
   handleSubmit = (data) => {
-    this.props.onSubmit(data);
-    browserHistory.push('/form/view');
+    this.props.onSubmit(data)
+    hashHistory.push('/forms/result');
   }
+
   render() {
     return (
       <FormWithValidation
@@ -35,6 +36,6 @@ class Add extends PureComponent {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: bindActionCreators(saveForm, dispatch)
+  onSubmit: bindActionCreators(saveForm3, dispatch)
 });
-export default connect(null, mapDispatchToProps)(Add);
+export default connect(null, mapDispatchToProps)(Form);

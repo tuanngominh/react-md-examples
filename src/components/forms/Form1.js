@@ -8,7 +8,6 @@ import Checkbox from 'react-md/lib/SelectionControls/Checkbox';
 import SelectField from 'react-md/lib/SelectFields';
 import DatePicker from 'react-md/lib/Pickers/DatePickerContainer';
 import Autocomplete from 'react-md/lib/Autocompletes';
-// import DatePicker from 'react-md/lib/Pickers/DatePickerContainer';
 
 const getMenuItems = (field) => {
   let data = [];
@@ -20,11 +19,11 @@ const getMenuItems = (field) => {
   return data;
 }
 
-const FormButtons = () => (
+const Form = () => (
   <div className="md-cell md-cell--12">
     <Card className="md-grid">
       <CardTitle
-        title="Form Title"
+        title="Form 1 Title"
       />
       <form>
         <div className="md-cell md-cell--12">
@@ -126,4 +125,4 @@ const FormButtons = () => (
   </div>
 )
 
-export default FormButtons;
+export default Form;

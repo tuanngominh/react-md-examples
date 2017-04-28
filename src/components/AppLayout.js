@@ -5,10 +5,22 @@ import { Link } from 'react-router';
 
 const navItems = [
   <ListItem
-    key="grid1"
-    primaryText="Form Buttons"
+    key="forms1"
+    primaryText="Form1"
     component={Link}
-    to="/grid/form-buttons"
+    to="/forms/form1"
+  />,
+  <ListItem
+    key="forms2"
+    primaryText="Form2"
+    component={Link}
+    to="/forms/form2"
+  />,
+  <ListItem
+    key="formValidation"
+    primaryText="Form Validation"
+    component={Link}
+    to="/forms/form3"
   />,
   <ListItem
     key="counter"
@@ -21,12 +33,6 @@ const navItems = [
     primaryText="Github"
     component={Link}
     to="/github/repos/search"
-  />,
-  <ListItem
-    key="formValidation"
-    primaryText="Form Validation"
-    component={Link}
-    to="/form/add"
   />,
 ];
 

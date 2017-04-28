@@ -3,23 +3,22 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import Counter from './components/Counter';
 import SearchGithubRepos from './containers/github/SearchRepos';
 import AppLayout from './components/AppLayout';
-import Add from './containers/form/Add';
-import View from './containers/form/View';
-import Form1 from './components/grid/Form1';
+import Form1 from './components/forms/Form1';
+import Form2 from './containers/form/Form2';
+import Form3 from './containers/form/Form3';
+import Result from './containers/form/Result';
 
 const Root = () => {
   return (
     <Router history={hashHistory}>
       <Route path="/" component={AppLayout} >
         <IndexRoute component={SearchGithubRepos} />
-        <Route path="/grid/form-buttons" component={Form1} />
+        <Route path="/forms/form1" component={Form1} />
+        <Route path="/forms/form2" component={Form2} />
+        <Route path="/forms/form3" component={Form3} />
+        <Route path="/forms/result" component={Result} />
         <Route path="/github/repos/search" component={SearchGithubRepos} />
         <Route path="/counter" component={Counter} />
-        <Route path="form">
-          <Route path="add" component={Add} />
-          <Route path="view" component={View} />
-        </Route>
-
       </Route>
     </Router>
   );
