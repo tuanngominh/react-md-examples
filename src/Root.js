@@ -1,6 +1,5 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import Counter from './components/Counter';
 import SearchGithubRepos from './containers/github/SearchRepos';
 import AppLayout from './components/AppLayout';
@@ -10,7 +9,7 @@ import Form1 from './components/grid/Form1';
 
 const Root = () => {
   return (
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
       <Route path="/" component={AppLayout} >
         <IndexRoute component={SearchGithubRepos} />
         <Route path="/grid/form-buttons" component={Form1} />
