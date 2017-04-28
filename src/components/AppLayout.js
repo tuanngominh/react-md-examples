@@ -5,6 +5,12 @@ import { Link } from 'react-router';
 
 const navItems = [
   <ListItem
+    key="grid1"
+    primaryText="Form Buttons"
+    component={Link}
+    to="/grid/form-buttons"
+  />,
+  <ListItem
     key="counter"
     primaryText="Counter"
     component={Link}
@@ -28,7 +34,7 @@ class AppLayout extends Component {
   render() {
     return (
       <NavigationDrawers
-        contentClassName="md-grid md-grid--no-spacing"
+        contentClassName="md-grid"
         toolbarTitle="redux-saga, react-md, react-redux-form"
         navItems={navItems}
       >
