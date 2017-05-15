@@ -5,16 +5,12 @@ const withDrawerToggle = (WrappedComponent) => {
     constructor(props) {
       super(props);
 
-      this.handleToggleDrawer = this.handleToggleDrawer.bind(this);
-      this.handleCloseDrawer = this.handleCloseDrawer.bind(this);
-      this.getDrawerVisible = this.getDrawerVisible.bind(this);
-
       this.state = {
         drawersVisible: {},
       };
     }
 
-    handleToggleDrawer(drawerName) {
+    handleToggleDrawer = (drawerName) => {
       this.setState((preState) => {
         preState.drawersVisible[drawerName] = !preState.drawersVisible[drawerName];
         return {
@@ -23,7 +19,7 @@ const withDrawerToggle = (WrappedComponent) => {
       });
     }
 
-    handleCloseDrawer(drawerName) {
+    handleCloseDrawer = (drawerName) => {
       this.setState((preState) => {
         preState.drawersVisible[drawerName] = false;
         return {
@@ -32,7 +28,7 @@ const withDrawerToggle = (WrappedComponent) => {
       });
     }
 
-    getDrawerVisible(drawerName) {
+    getDrawerVisible = (drawerName) => {
       return drawerName in this.state.drawersVisible ? this.state.drawersVisible[drawerName] : false;
     }
 
