@@ -1,47 +1,19 @@
 import React, {Component} from 'react';
-import Drawer from 'react-md/lib/Drawers';
-import Toolbar from 'react-md/lib/Toolbars';
 import Card from 'react-md/lib/Cards/Card';
 import Button from 'react-md/lib/Buttons/Button';
 import SelectField from 'react-md/lib/SelectFields';
+import withDrawerToggle from './withDrawerToggle';
+import RightDrawer from './RightDrawer';
 import { getMenuItems } from '../utils';
 
 class WithRightDrawer1 extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      drawersVisible: {
-        drawer1: false,
-        drawer2: false,
-      },
-    };
-
-  }
-
-  handleToggleDrawer = (drawerName) => {
-    this.setState((preState) => {
-      preState.drawersVisible[drawerName] = !preState.drawersVisible[drawerName];
-      return {
-        drawersVisible: preState.drawersVisible,
-      };
-    });
-  }
-
-  handleCloseDrawer = (drawerName) => {
-    this.setState((preState) => {
-      preState.drawersVisible[drawerName] = false;
-      return {
-        drawersVisible: preState.drawersVisible,
-      };
-    });
-  }
 
   handleSubmitForm = (e) => {
     e.preventDefault();
   }
 
   render() {
+    const {handleToggleDrawer, handleCloseDrawer, getDrawerVisible} = this.props;
     return (
       <Card className="md-cell--12">
         <form onSubmit={this.handleSubmitForm} className="md-grid">
@@ -49,31 +21,24 @@ class WithRightDrawer1 extends Component {
             <div className="md-cell md-cell--12">
               <Button
                 raised
-                label="Open drawer to select option"
+                label="Open drawer1 to select option"
                 primary
-                onClick={() => this.handleToggleDrawer('drawer1')}
+                onClick={() => handleToggleDrawer('drawer1')}
               />
             </div>
             <div className="md-cell md-cell--12">
               <Button
                 raised
-                label="Open drawer to select option"
+                label="Open drawer2 to select option"
                 primary
-                onClick={() => this.handleToggleDrawer('drawer2')}
+                onClick={() => handleToggleDrawer('drawer2')}
               />
             </div>
-            <Drawer
-              visible={this.state.drawersVisible.drawer1}
-              onVisibilityToggle={() => this.handleToggleDrawer('drawer1')}
-              type={Drawer.DrawerTypes.TEMPORARY}
-              position='right'
-              header={
-                <Toolbar
-                  nav={<Button icon onClick={() => this.handleCloseDrawer('drawer1')}>close</Button>}
-                  className="md-divider-border md-divider-border--bottom"
-                />
-              }
-              style={{ zIndex: 100 }}
+            <RightDrawer
+              handleToggleDrawer={handleToggleDrawer}
+              handleCloseDrawer={handleCloseDrawer}
+              getDrawerVisible={getDrawerVisible}
+              drawerName="drawer1"
             >
               <SelectField
                 style={{width: 300}}
@@ -84,19 +49,12 @@ class WithRightDrawer1 extends Component {
                 className="md-cell md-cell--12"
                 required
               />
-            </Drawer>
-            <Drawer
-              visible={this.state.drawersVisible.drawer2}
-              onVisibilityToggle={() => this.handleToggleDrawer('drawer2')}
-              type={Drawer.DrawerTypes.TEMPORARY}
-              position='right'
-              header={
-                <Toolbar
-                  nav={<Button icon onClick={() => this.handleCloseDrawer('drawer2')}>close</Button>}
-                  className="md-divider-border md-divider-border--bottom"
-                />
-              }
-              style={{ zIndex: 100 }}
+            </RightDrawer>
+            <RightDrawer
+              handleToggleDrawer={handleToggleDrawer}
+              handleCloseDrawer={handleCloseDrawer}
+              getDrawerVisible={getDrawerVisible}
+              drawerName="drawer2"
             >
               <SelectField
                 style={{width: 300}}
@@ -107,7 +65,7 @@ class WithRightDrawer1 extends Component {
                 className="md-cell md-cell--12 md-cell--bottom"
                 required
               />
-            </Drawer>
+            </RightDrawer>
           </div>
         </form>
       </Card>
@@ -115,4 +73,4 @@ class WithRightDrawer1 extends Component {
   }
 }
 
-export default WithRightDrawer1;
+export default withDrawerToggle(WithRightDrawer1);
