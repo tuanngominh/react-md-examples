@@ -24,4 +24,4 @@ const mapDispatchToProps = dispatch => ({
   onSearch: bindActionCreators(searchRepos, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchGithubRepos);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchRepos);

@@ -5,6 +5,12 @@ import { Link } from 'react-router';
 
 const navItems = [
   <ListItem
+    key="drawers"
+    primaryText="Drawer"
+    component={Link}
+    to="/drawers"
+  />,
+  <ListItem
     key="forms1"
     primaryText="Form1"
     component={Link}

@@ -7,12 +7,14 @@ import Form1 from './components/forms/Form1';
 import Form2 from './containers/form/Form2';
 import Form3 from './containers/form/Form3';
 import Result from './containers/form/Result';
+import Drawer from './components/drawers/WithRightDrawer1';
 
 const Root = () => {
   return (
     <Router history={hashHistory}>
       <Route path="/" component={AppLayout} >
         <IndexRoute component={SearchGithubRepos} />
+        <Route path="/drawers" component={Drawer} />
         <Route path="/forms/form1" component={Form1} />
         <Route path="/forms/form2" component={Form2} />
         <Route path="/forms/form3" component={Form3} />

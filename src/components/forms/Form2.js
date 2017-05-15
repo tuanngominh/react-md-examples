@@ -8,16 +8,7 @@ import Checkbox from 'react-md/lib/SelectionControls/Checkbox';
 import SelectField from 'react-md/lib/SelectFields';
 import DatePicker from 'react-md/lib/Pickers/DatePickerContainer';
 import Autocomplete from 'react-md/lib/Autocompletes';
-
-const getMenuItems = (field) => {
-  let data = [];
-  let i = 0;
-  while (i < 10) {
-    data.push(`Value ${i}`);
-    i++;
-  }
-  return data;
-}
+import { getMenuItems } from '../utils';
 
 class Form extends Component {
   constructor (props) {
